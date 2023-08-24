@@ -1,0 +1,28 @@
+.card {
+  width: 8.625rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.63rem;
+
+  &_image {
+    width: 100%;
+    aspect-ratio: 8.625/12.375;
+    display: grid;
+    place-items: center;
+
+    border-radius: 1.25rem;
+    border: 4px solid rgba(255, 255, 255, 0.6);
+  }
+
+  &_label {
+    padding: 0.63rem;
+    background: #fff;
+    border-radius: 0.625rem;
+
+    color: #ff868e;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.125rem;
+  }
+}
