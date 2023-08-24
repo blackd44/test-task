@@ -1,5 +1,6 @@
 import "./App.scss";
 import LeftSection from "./components/leftSection";
+import HomePage from "./pages";
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <div className="warper">
         <LeftSection />
         <section>
-          <div> </div>
+          <HomePage />
         </section>
       </div>
     </>
