@@ -9,9 +9,9 @@ const LeftSection = () => {
   return (
     <section className="section_left">
       <div className="section_left_container">
-        <header>
+        <div>
           <Brand />
-        </header>
+        </div>
 
         <div className="section_left__main">
           <div>
@@ -35,6 +35,7 @@ const LeftSection = () => {
                 label="GALLERY"
                 image={galleryimage}
                 backColor="#FFD280"
+                link="/gallery"
               />
             </div>
           </div>

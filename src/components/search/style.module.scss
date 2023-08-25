@@ -1,0 +1,26 @@
+.search {
+  flex: 1;
+
+  display: inline-flex;
+  border-radius: 1.25rem;
+  background: #fff;
+
+  padding: 0.63rem;
+  padding-left: 1.25rem;
+
+  input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    font-family: Jost;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: inherit;
+
+    &::placeholder {
+      color: var(--grey-color, #8c8c8c);
+    }
+  }
+}

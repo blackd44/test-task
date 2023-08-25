@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import BrandIcon from "./Icon";
 import BrandText from "./Text";
 
 const Brand = () => {
   return (
-    <div className="brand">
-      <BrandIcon />
-      <BrandText />
+    <div>
+      <Link className="brand" to="/">
+        <BrandIcon />
+        <BrandText />
+      </Link>
     </div>
   );
 };

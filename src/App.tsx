@@ -1,6 +1,6 @@
 import "./App.scss";
 import LeftSection from "./components/leftSection";
-import HomePage from "./pages";
+import Routes from "./routes";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <div className="warper">
         <LeftSection />
         <section>
-          <HomePage />
+          <Routes />
         </section>
       </div>
     </>
