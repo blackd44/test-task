@@ -19,6 +19,7 @@ const FilterBar = () => {
       />
       <div className="inline">
         <Select
+          fill
           label="LIMIT"
           options={[
             "5 items per page",

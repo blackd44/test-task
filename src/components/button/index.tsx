@@ -3,10 +3,11 @@ import { ReactElement } from "react";
 type props = {
   children: ReactElement;
   theme?: "normal" | "gray" | "inverse";
+  type?: "icon" | "large";
 };
 
-const Button = ({ children, theme = "normal" }: props) => {
-  return <button className={`btn1 ${theme}`}>{children}</button>;
+const Button = ({ children, theme = "normal", type='icon' }: props) => {
+  return <button className={`btn1 ${theme} type_${type}`}>{children}</button>;
 };
 
 export default Button;

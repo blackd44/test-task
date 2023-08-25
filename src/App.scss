@@ -5,16 +5,34 @@
 }
 
 .btn1 {
+  --sm-gap: 0.625rem;
+
   width: 2.5rem;
   height: 2.5rem;
   flex-shrink: 0;
 
-  border-radius: 0.625rem;
+  border-radius: var(--sm-gap);
   background: #fbe0dc;
   border: none;
 
+  color: #ff868e;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.125rem;
+
   &.gray {
-    background: #F8F8F7;
+    background: #f8f8f7;
+  }
+
+  &.type_large {
+    width: auto;
+
+    display: flex;
+    gap: var(--sm-gap);
+    padding-inline: 1.88rem;
+
+    align-items: center;
   }
 }
 
