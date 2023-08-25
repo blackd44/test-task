@@ -2,20 +2,19 @@ import Button from "../components/button";
 import Select from "../components/form/select";
 import SubHeader from "../components/header/subHeader";
 import Image from "../components/images";
-import useFetch from "../hooks/useFetch";
+import useBreeds from "../hooks/useBreeds";
 
 interface Data {
-  height: number;
+  name: string;
   id: string;
+  reference_image_id: string;
   url: string;
-  width: number;
 }
 
 const Breeds = () => {
-  const { data, loading } = useFetch<Data[]>(
-    `https://api.thecatapi.com/v1/images/search?limit=10`
+  const { data, loading } = useBreeds<Data[]>(
+    `https://api.thecatapi.com/v1/breeds`
   );
-  console.log({ data });
 
   return (
     <>
@@ -76,7 +75,10 @@ const Breeds = () => {
       <section className="content">
         <div className="image_list">
           {!loading ? (
-            data?.map(({ id, url }) => <Image src={url} key={id} />)
+            data?.map(({ id, url, name }) => {
+              
+              return <Image src={url} key={id} alt={name} />;
+            })
           ) : (
             <>loading</>
           )}

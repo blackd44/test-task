@@ -25,6 +25,7 @@ const LeftSection = () => {
                 label="VOTING"
                 image={votingimage}
                 backColor="#B4B7FF"
+                link="/votings"
               />
               <LeftCard
                 label="BREEDS"

@@ -4,6 +4,7 @@ import useFetch from "../hooks/useFetch";
 import SubHeader from "../components/header/subHeader";
 import { useState } from "react";
 import Button from "../components/button";
+import ItemNotFound from "../components/itemNotFound";
 
 interface Data {
   height: number;
@@ -50,13 +51,19 @@ const Gallery = () => {
 
       <section className="content">
         <FilterBar />
-        <div className="image_list">
-          {!loading ? (
-            data?.map(({ id, url }) => <Image src={url} key={id} />)
+        {!loading ? (
+          data && data.length ? (
+            <div className="image_list">
+              {data.map(({ id, url }) => (
+                <Image src={url} key={id} />
+              ))}
+            </div>
           ) : (
-            <>loading</>
-          )}
-        </div>
+            <ItemNotFound />
+          )
+        ) : (
+          <>loading</>
+        )}
       </section>
     </>
   );
