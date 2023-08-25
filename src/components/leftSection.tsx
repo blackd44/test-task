@@ -30,6 +30,7 @@ const LeftSection = () => {
                 label="BREEDS"
                 image={breedsimage}
                 backColor="#97EAB9"
+                link="/breeds"
               />
               <LeftCard
                 label="GALLERY"

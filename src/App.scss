@@ -12,6 +12,10 @@
   border-radius: 0.625rem;
   background: #fbe0dc;
   border: none;
+
+  &.gray {
+    background: #F8F8F7;
+  }
 }
 
 .brand {
@@ -106,6 +110,7 @@
 
   display: flex;
   gap: var(--gap);
+  flex-wrap: wrap;
 
   &_left {
     display: flex;

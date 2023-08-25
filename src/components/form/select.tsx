@@ -9,16 +9,29 @@ type OptionType = {
 type props = {
   options?: OptionType[] | string[];
   children?: ReactElement;
-  label: string;
+  label?: string;
+  theme?: "normal" | "gray" | "inverse";
+  fill?: boolean;
 };
 
-const Select = ({ options, children, label }: props) => {
+const Select = ({
+  options,
+  children,
+  label,
+  theme = "normal",
+  fill,
+  ...props
+}: props) => {
   const id = useId();
 
   return (
-    <label htmlFor={id} className={css.box}>
+    <label
+      htmlFor={id}
+      className={`${css.box} ${css[theme]}`}
+      style={{ flex: fill ? 1 : 0, width: fill ? "100%" : "" }}
+    >
       {label && <p className={css.label}>{label}</p>}
-      <select id={id} className={css.input}>
+      <select id={id} className={css.input} {...props}>
         {options && Array.isArray(options) && options.length > 0
           ? options.map((option: OptionType | string) => (
               <option
