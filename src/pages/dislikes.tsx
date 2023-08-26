@@ -1,7 +1,7 @@
 import Image from "../components/images";
 import useFetch from "../hooks/useFetch";
 import SubHeader from "../components/header/subHeader";
-import DataRender from "../components/dataRender";
+import DataRender from "../components/renders/ImageDataList";
 
 interface Data {
   height: number;

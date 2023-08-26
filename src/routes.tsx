@@ -8,7 +8,7 @@ import Voting from "./pages/voting";
 import Likes from "./pages/likes";
 import DisLikes from "./pages/dislikes";
 import Favourites from "./pages/favourites";
-import BreedSelected from "./pages/breeds/:selected";
+import BreedSelected from "./pages/breeds/:breedId";
 
 const Routes = () => {
   return (

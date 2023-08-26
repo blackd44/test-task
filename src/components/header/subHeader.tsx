@@ -17,6 +17,7 @@ const SubHeader = ({ title, children }: props) => {
       <BackButton />
       {titles.map((t, index) => (
         <h2
+          key={t}
           className={`page_title_head ${index !== 0 ? "w_fit" : ""} ${
             index == titles.length - 1 ? "last" : ""
           }`}

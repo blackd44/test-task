@@ -1,0 +1,36 @@
+.model_section {
+  --margin: 1.88rem;
+  --padding: 1.25rem;
+
+  z-index: 9999;
+  width: 100%;
+  height: calc(100vh - var(--margin) * 2);
+  background: var(--back-color);
+  border-radius: var(--padding);
+  padding: var(--padding);
+  margin: auto var(--margin);
+  outline: none;
+  border: none;
+
+  @media (min-width: calc(25rem + (1.88rem * 2))) {
+    margin-inline: auto var(--margin);
+    width: calc(50vw - var(--margin));
+  }
+
+  &::backdrop {
+    background: rgba(29, 29, 29, 0.6);
+  }
+
+  .close_button {
+    width: fit-content;
+    margin: 0 0 2.5rem auto;
+  }
+
+  .container {
+    //   display: block;
+    //   background: white;
+    //   width: 50%;
+    //   height: 100%;
+    //   border-radius: 1.25rem;
+  }
+}

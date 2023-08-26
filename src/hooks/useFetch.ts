@@ -24,7 +24,7 @@ function dataFetchReducer<T>(state: State<T>, action: Action<T>) {
   }
 }
 
-function useFetch<T>(url: string): State<T> {
+function useFetch<T>(url: string, options: RequestInit = {}): State<T> {
   const [state, dispatch] = useReducer(dataFetchReducer, {
     data: null,
     loading: false,
@@ -38,7 +38,7 @@ function useFetch<T>(url: string): State<T> {
       dispatch({ type: "LOADING" });
 
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, options);
         if (!didCancel) {
           const data = await response.json();
           dispatch({ type: "SUCCESS", payload: data });

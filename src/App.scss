@@ -4,6 +4,14 @@
   --black-color: #1d1d1d;
   --active-color: #ff868e;
   --active-light-color: #fbe0dc;
+  --white-color: #fff;
+}
+
+.active_color {
+  color: var(--active-color);
+}
+.grey_color {
+  color: var(--grey-color);
 }
 
 .flex_center {
@@ -46,7 +54,7 @@ a {
   }
 
   &.light {
-    background: #fff;
+    background: var(--white-color);
 
     &:hover {
       background-color: var(--active-light-color);
@@ -197,7 +205,7 @@ a {
 
     &.last {
       background: var(--active-color);
-      color: #fff;
+      color: var(--white-color);
     }
   }
 }
@@ -220,7 +228,7 @@ a {
 
     padding: var(--gap);
     border-radius: var(--gap);
-    background: #fff;
+    background: var(--white-color);
 
     overflow-y: auto;
 
@@ -368,9 +376,44 @@ a {
 
   width: 100%;
   aspect-ratio: 40/22.5;
-  
+
   > * {
     aspect-ratio: 40/22.5;
     width: 100%;
+  }
+}
+
+.upload_section {
+  color: var(--black-color);
+
+  > h2 {
+    font-size: 2.25rem;
+    font-weight: 500;
+    margin-bottom: 0.63rem;
+  }
+
+  > p {
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  .drag {
+    width: 100%;
+    aspect-ratio: 2/1;
+
+    display: grid;
+    place-items: center;
+    border-radius: 1.25rem;
+    border: 2px dashed var(--active-light-color);
+    background: var(--white-color);
+
+    font-size: 1.25rem;
+    font-weight: 400;
+
+    margin-block: 2.5rem 1.25rem;
+
+    b {
+      color: var(--black-color);
+    }
   }
 }

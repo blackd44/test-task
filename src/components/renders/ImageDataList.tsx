@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
-import ItemNotFound from "./itemNotFound";
-import Loader from "./loaders";
+import ItemNotFound from "../itemNotFound";
+import Loader from "../loaders";
 
 type props = {
   loading: boolean;
@@ -8,7 +8,7 @@ type props = {
   children?: ReactElement;
 };
 
-const DataRender = ({ loading, data, children }: props) => {
+const DataImageListRender = ({ loading, data, children }: props) => {
   return !loading ? (
     data && data.length ? (
       <div className="image_list">{children}</div>
@@ -20,4 +20,4 @@ const DataRender = ({ loading, data, children }: props) => {
   );
 };
 
-export default DataRender;
+export default DataImageListRender;

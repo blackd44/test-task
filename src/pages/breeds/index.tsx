@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Breed from "../../components/breed";
 import Button from "../../components/button";
-import DataRender from "../../components/dataRender";
+import DataRender from "../../components/renders/ImageDataList";
 import Select from "../../components/form/select";
 import SubHeader from "../../components/header/subHeader";
 import useFetch from "../../hooks/useFetch";
@@ -12,10 +13,28 @@ interface Data {
   url: string;
 }
 
+interface apiPramsType {
+  limit?: string | number;
+  breed?: string;
+}
+
 const Breeds = () => {
+  const [apiParams, setParams] = useState<apiPramsType>({
+    limit: 10,
+    breed: undefined,
+  });
   const { data, loading } = useFetch<Data[]>(
-    `https://api.thecatapi.com/v1/breeds`
+    `https://api.thecatapi.com/v1/breeds?${
+      apiParams.limit && `limit=${apiParams.limit}`
+    }`
   );
+
+  const changeApiParams = (property: "limit" | "breed", value: string) => {
+    setParams((prev) => {
+      prev[property] = value;
+      return { ...prev };
+    });
+  };
   return (
     <>
       <SubHeader title="BREEDS">
@@ -34,8 +53,15 @@ const Breeds = () => {
             ]}
           />
           <Select
+            defaultValue={`${apiParams.limit}`}
+            onChange={(_, val) => changeApiParams("limit", val)}
             theme="gray"
-            options={["Limit: 5", "Limit: 10", "Limit: 15", "Limit: 20"]}
+            options={[
+              { value: "5", text: "Limit: 5" },
+              { value: "10", text: "Limit: 10" },
+              { value: "15", text: "Limit: 15" },
+              { value: "20", text: "Limit: 20" },
+            ]}
           />
           <Button theme="gray">
             <svg
@@ -76,7 +102,7 @@ const Breeds = () => {
         <DataRender loading={loading} data={data}>
           <>
             {data?.map((breed) => (
-              <Breed {...breed} />
+              <Breed {...breed} key={breed.id} />
             ))}
           </>
         </DataRender>
