@@ -1,7 +1,7 @@
 import Image from "../components/images";
 import useFetch from "../hooks/useFetch";
 import SubHeader from "../components/header/subHeader";
-import ItemNotFound from "../components/itemNotFound";
+import DataRender from "../components/dataRender";
 
 interface Data {
   height: number;
@@ -24,19 +24,13 @@ const Likes = () => {
       <SubHeader title="LIKES" />
 
       <section className="content">
-        {!loading ? (
-          data && data.length ? (
-            <div className="image_list">
-              {data.map(({ id, url }) => (
-                <Image src={url} key={id} />
-              ))}
-            </div>
-          ) : (
-            <ItemNotFound />
-          )
-        ) : (
-          <>loading</>
-        )}
+        <DataRender loading={loading} data={data}>
+          <>
+            {data?.map(({ id, url }) => (
+              <Image src={url} key={id} />
+            ))}
+          </>
+        </DataRender>
       </section>
     </>
   );

@@ -6,7 +6,8 @@
   flex-direction: column;
   gap: 0.63rem;
   text-decoration: none;
-
+  transition: .25s ease;
+  
   &_image {
     width: 100%;
     aspect-ratio: 8.625/12.375;
@@ -16,6 +17,7 @@
     border-radius: 1.25rem;
     border: 4px solid rgba(255, 255, 255, 0.6);
     background-color: var(--back);
+    transition: inherit;
   }
 
   &_label {
@@ -28,6 +30,7 @@
     font-size: 0.75rem;
     font-weight: 500;
     letter-spacing: 0.125rem;
+    transition: inherit;
   }
 
   &:hover {

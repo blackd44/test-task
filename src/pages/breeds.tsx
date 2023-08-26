@@ -1,8 +1,9 @@
+import Breed from "../components/breed";
 import Button from "../components/button";
+import DataRender from "../components/dataRender";
 import Select from "../components/form/select";
 import SubHeader from "../components/header/subHeader";
-import Image from "../components/images";
-import useBreeds from "../hooks/useBreeds";
+import useFetch from "../hooks/useFetch";
 
 interface Data {
   name: string;
@@ -12,7 +13,7 @@ interface Data {
 }
 
 const Breeds = () => {
-  const { data, loading } = useBreeds<Data[]>(
+  const { data, loading } = useFetch<Data[]>(
     `https://api.thecatapi.com/v1/breeds`
   );
 
@@ -73,16 +74,13 @@ const Breeds = () => {
       </SubHeader>
 
       <section className="content">
-        <div className="image_list">
-          {!loading ? (
-            data?.map(({ id, url, name }) => {
-              
-              return <Image src={url} key={id} alt={name} />;
-            })
-          ) : (
-            <>loading</>
-          )}
-        </div>
+        <DataRender loading={loading} data={data}>
+          <>
+            {data?.map((breed) => (
+              <Breed {...breed} />
+            ))}
+          </>
+        </DataRender>
       </section>
     </>
   );
