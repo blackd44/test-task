@@ -1,9 +1,9 @@
-import Breed from "../components/breed";
-import Button from "../components/button";
-import DataRender from "../components/dataRender";
-import Select from "../components/form/select";
-import SubHeader from "../components/header/subHeader";
-import useFetch from "../hooks/useFetch";
+import Breed from "../../components/breed";
+import Button from "../../components/button";
+import DataRender from "../../components/dataRender";
+import Select from "../../components/form/select";
+import SubHeader from "../../components/header/subHeader";
+import useFetch from "../../hooks/useFetch";
 
 interface Data {
   name: string;
@@ -16,7 +16,6 @@ const Breeds = () => {
   const { data, loading } = useFetch<Data[]>(
     `https://api.thecatapi.com/v1/breeds`
   );
-
   return (
     <>
       <SubHeader title="BREEDS">

@@ -5,6 +5,7 @@ import SubHeader from "../components/header/subHeader";
 import { useState } from "react";
 import Button from "../components/button";
 import DataRender from "../components/dataRender";
+import { Icon } from "../components/header/bars";
 
 interface Data {
   height: number;
@@ -54,7 +55,18 @@ const Gallery = () => {
         <DataRender loading={loading} data={data}>
           <>
             {data?.map(({ id, url }) => (
-              <Image src={url} key={id} />
+              <Image
+                src={url}
+                key={id}
+                hoverEffect
+                hoverElement={
+                  <div className="flex_center fill">
+                    <Button theme="light" type="icon">
+                      <Icon type="heart" />
+                    </Button>
+                  </div>
+                }
+              />
             ))}
           </>
         </DataRender>

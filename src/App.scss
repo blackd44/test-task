@@ -3,7 +3,25 @@
   --grey-color: #8c8c8c;
   --black-color: #1d1d1d;
   --active-color: #ff868e;
-  --active-light-color: #FBE0DC;
+  --active-light-color: #fbe0dc;
+}
+
+.flex_center {
+  display: grid;
+  place-items: center;
+}
+.flex_btm {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 
 .btn1 {
@@ -29,6 +47,10 @@
 
   &.light {
     background: #fff;
+
+    &:hover {
+      background-color: var(--active-light-color);
+    }
   }
 
   &.type_large {
@@ -160,13 +182,23 @@
     width: 9.75rem;
     flex-shrink: 0;
 
-    background: var(--active-color);
-    color: #fff;
+    background: var(--active-light-color);
+    color: var(--active-color);
 
     text-align: center;
     font-size: 1.25rem;
     font-weight: 500;
     letter-spacing: 0.125rem;
+
+    &.w_fit {
+      width: fit-content;
+      padding-inline: 1.88rem;
+    }
+
+    &.last {
+      background: var(--active-color);
+      color: #fff;
+    }
   }
 }
 
@@ -326,5 +358,19 @@
 @keyframes s3 {
   to {
     transform: rotate(1turn);
+  }
+}
+
+// breed page image
+.breed_images {
+  position: relative;
+  display: flex;
+
+  width: 100%;
+  aspect-ratio: 40/22.5;
+  
+  > * {
+    aspect-ratio: 40/22.5;
+    width: 100%;
   }
 }

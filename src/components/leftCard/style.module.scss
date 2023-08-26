@@ -9,6 +9,7 @@
   transition: .25s ease;
   
   &_image {
+    overflow: hidden;
     width: 100%;
     aspect-ratio: 8.625/12.375;
     display: grid;

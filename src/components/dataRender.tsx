@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import ItemNotFound from "./itemNotFound";
+import Loader from "./loaders";
 
 type props = {
   loading: boolean;
@@ -15,11 +16,7 @@ const DataRender = ({ loading, data, children }: props) => {
       <ItemNotFound />
     )
   ) : (
-    <div className="loader_full">
-      <div>
-        <span className="spinner" />
-      </div>
-    </div>
+    <Loader />
   );
 };
 

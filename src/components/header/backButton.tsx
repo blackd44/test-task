@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 const BackButton = () => {
+  const navigate = useNavigate();
+  const goback = () => {
+    navigate(-1);
+  };
+
   return (
-    <button type="button" className="btn1">
+    <button type="button" className="btn1" onClick={goback}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"

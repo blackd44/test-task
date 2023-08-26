@@ -8,6 +8,7 @@ import Voting from "./pages/voting";
 import Likes from "./pages/likes";
 import DisLikes from "./pages/dislikes";
 import Favourites from "./pages/favourites";
+import BreedSelected from "./pages/breeds/:selected";
 
 const Routes = () => {
   return (
@@ -26,7 +27,10 @@ const Routes = () => {
           }
         >
           <Route path="/gallery" element={<Gallery />} />
+
           <Route path="/breeds" element={<Breeds />} />
+          <Route path="/breeds/:breedId" element={<BreedSelected />} />
+
           <Route path="/votings" element={<Voting />} />
 
           <Route path="/likes" element={<Likes />} />
