@@ -15,12 +15,28 @@ interface Data {
   width: number;
 }
 
+interface apiPramsType {
+  limit?: string | number;
+  breed?: string;
+  order?: string;
+  types?: string;
+}
+
 // const API_KEY = import.meta.env.VITE_CAT_API_KEY;
 
 const Gallery = () => {
-  const [limit] = useState<number>(15);
+  const [apiParams, setParams] = useState<apiPramsType>({
+    limit: 15,
+    breed: undefined,
+    order: "RAND",
+    types: "jpg,gif,png",
+  });
   const { data, loading } = useFetch<Data[]>(
-    `https://api.thecatapi.com/v1/images/search?limit=${limit}&api_key=${""}`
+    `https://api.thecatapi.com/v1/images/search?${
+      apiParams.limit ? `limit=${apiParams.limit}&` : ""
+    }${apiParams.breed ? `breed_ids=${apiParams.breed}&` : ""}${
+      apiParams.order ? `order=${apiParams.order}&` : ""
+    }${apiParams.types ? `mime_types=${apiParams.types}&` : ""}api_key=${""}`
   );
 
   return (
@@ -32,7 +48,10 @@ const Gallery = () => {
       </SubHeader>
 
       <section className="content">
-        <FilterBar />
+        <FilterBar
+          defaults={apiParams}
+          changed={setParams}
+        />
         <DataRender loading={loading} data={data}>
           <>
             {data?.map(({ id, url }) => (

@@ -3,11 +3,11 @@ import { ReactElement, useId } from "react";
 
 type OptionType = {
   text: string;
-  value: string;
+  value: string | number;
 };
 
 type props = {
-  defaultValue?: string;
+  defaultValue?: string | number;
   options?: OptionType[] | string[];
   children?: ReactElement;
   label?: string;

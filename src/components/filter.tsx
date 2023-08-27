@@ -1,34 +1,87 @@
+import { useContext, useState } from "react";
 import Select from "./form/select";
+import { BreedContext } from "./breedsProvider";
+import Button from "./button";
 
-const FilterBar = () => {
+interface defaultsType {
+  limit?: string | number;
+  breed?: string;
+  order?: string;
+  types?: string;
+}
+interface props {
+  changed?: React.Dispatch<React.SetStateAction<defaultsType>>;
+  defaults?: defaultsType;
+}
+
+const FilterBar = ({ changed, defaults }: props) => {
+  const { data: breedsData } = useContext(BreedContext);
+
+  const [filtered, setParams] = useState<defaultsType>(
+    defaults || {
+      limit: 10,
+      breed: undefined,
+      order: "RAND",
+      types: "jpg,gif,png",
+    }
+  );
+  const onChange = (
+    property: "limit" | "breed" | "order" | "types",
+    value: string
+  ) => {
+    setParams((prev) => {
+      prev[property] = value;
+      return { ...prev };
+    });
+  };
+
   return (
     <div className="gallery_filter">
-      <Select label="ORDER" options={["Random", "Desc", "Asc"]} />
-      <Select label="TYPE" options={["All", "Static", "Animated"]} />
+      <Select
+        label="ORDER"
+        defaultValue={defaults?.order}
+        onChange={(_, val) => onChange("order", val)}
+        options={[
+          { value: "RAND", text: "Random" },
+          { value: "DESC", text: "Desc" },
+          { value: "ASC", text: "Asc" },
+        ]}
+      />
+      <Select
+        label="TYPE"
+        defaultValue={defaults?.types}
+        onChange={(_, val) => onChange("types", val)}
+        options={[
+          { value: "jpg,gif,png", text: "All" },
+          { value: "jpg,png", text: "Static" },
+          { value: "gif", text: "Animated" },
+        ]}
+      />
       <Select
         label="BREED"
+        defaultValue={defaults?.breed || ""}
+        onChange={(_, val) => onChange("breed", val)}
         options={[
-          "None",
-          "Abyssinian",
-          "Bengal",
-          "Agean",
-          "American Bobtail",
-          "American Shorthair",
-          "American Wirehair",
+          { value: "", text: "None" },
+          ...(breedsData
+            ? breedsData.map(({ id, name }) => ({ value: id, text: name }))
+            : []),
         ]}
       />
       <div className="inline">
         <Select
           fill
           label="LIMIT"
+          defaultValue={`${defaults?.limit}` || ""}
+          onChange={(_, val) => onChange("limit", val)}
           options={[
-            "5 items per page",
-            "10 items per page",
-            "15 items per page",
-            "20 items per page",
+            { value: "5", text: "5 items per page" },
+            { value: "10", text: "10 items per page" },
+            { value: "15", text: "15 items per page" },
+            { value: "20", text: "20 items per page" },
           ]}
         />
-        <button className="btn1">
+        <Button theme="light" onClick={() => changed && changed(filtered)}>
           <svg
             width="40"
             height="40"
@@ -36,7 +89,6 @@ const FilterBar = () => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="40" height="40" rx="10" fill="white" />
             <path
               fillRule="evenodd"
               clipRule="evenodd"
@@ -44,7 +96,7 @@ const FilterBar = () => {
               fill="#FF868E"
             />
           </svg>
-        </button>
+        </Button>
       </div>
     </div>
   );

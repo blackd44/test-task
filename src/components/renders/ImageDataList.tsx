@@ -4,7 +4,7 @@ import Loader from "../loaders";
 
 type props = {
   loading: boolean;
-  data: unknown[];
+  data: unknown[] | null | undefined;
   children?: ReactElement;
 };
 

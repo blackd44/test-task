@@ -1,17 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Breed from "../../components/breed";
 import Button from "../../components/button";
 import DataRender from "../../components/renders/ImageDataList";
 import Select from "../../components/form/select";
 import SubHeader from "../../components/header/subHeader";
-import useFetch from "../../hooks/useFetch";
-
-interface Data {
-  name: string;
-  id: string;
-  reference_image_id: string;
-  url: string;
-}
+import { useNavigate } from "react-router-dom";
+import { BreedContext } from "../../components/breedsProvider";
 
 interface apiPramsType {
   limit?: string | number;
@@ -19,15 +13,14 @@ interface apiPramsType {
 }
 
 const Breeds = () => {
+  const navigate = useNavigate();
   const [apiParams, setParams] = useState<apiPramsType>({
     limit: 10,
     breed: undefined,
   });
-  const { data, loading } = useFetch<Data[]>(
-    `https://api.thecatapi.com/v1/breeds?${
-      apiParams.limit && `limit=${apiParams.limit}`
-    }`
-  );
+  const { data, loading } = useContext(BreedContext);
+
+  console.log(data);
 
   const changeApiParams = (property: "limit" | "breed", value: string) => {
     setParams((prev) => {
@@ -41,15 +34,16 @@ const Breeds = () => {
         <>
           <Select
             fill
+            defaultValue=""
             theme="gray"
+            onChange={(_, val) => {
+              if (val) navigate(`/breeds/${val}`);
+            }}
             options={[
-              "All breeds",
-              "Abyssinian",
-              "Bengal",
-              "Agean",
-              "American Bobtail",
-              "American Shorthair",
-              "American Wirehair",
+              { value: "", text: "All breeds" },
+              ...(data
+                ? data.map(({ id, name }) => ({ value: id, text: name }))
+                : []),
             ]}
           />
           <Select
@@ -99,11 +93,15 @@ const Breeds = () => {
       </SubHeader>
 
       <section className="content">
-        <DataRender loading={loading} data={data}>
+        <DataRender loading={loading == undefined ? true : loading} data={data}>
           <>
-            {data?.map((breed) => (
-              <Breed {...breed} key={breed.id} />
-            ))}
+            {data
+              ?.filter(
+                (_, index) => apiParams.limit && index < Number(apiParams.limit)
+              )
+              .map((breed) => (
+                <Breed {...breed} key={breed.id} />
+              ))}
           </>
         </DataRender>
       </section>
