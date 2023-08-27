@@ -6,7 +6,7 @@ const SearchInput = () => {
   const id = useId();
 
   return (
-    <label htmlFor={id} className={css.search}>
+    <label htmlFor={id} className={`${css.search} header_search`}>
       <input id={id} placeholder="Search for breeds by name" />
       <button type="button" className="btn1">
         <svg

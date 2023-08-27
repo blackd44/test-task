@@ -9,10 +9,8 @@ const ThemeSwitch = () => {
 
   /* istanbul ignore next */
   const handleTheme = () => {
-    setTheme && setTheme(colorTheme === "dark" ? "light" : "dark");
+    if (setTheme) setTheme(colorTheme === "dark" ? "light" : "dark");
   };
-
-  console.log({ colorTheme, setTheme });
 
   return (
     <span className={css.switch_holder}>

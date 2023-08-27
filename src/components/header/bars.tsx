@@ -68,7 +68,7 @@ export const Icon = ({ type = "happy", icon }: iconProps) => {
 
 const HeaderIcons = () => {
   return (
-    <>
+    <div className="header_navs">
       <NavLink to={"/likes"} className="icon_nav_link">
         <Button type="icon_md" theme="light">
           <Icon type="happy" />
@@ -84,7 +84,7 @@ const HeaderIcons = () => {
           <Icon type="sad" />
         </Button>
       </NavLink>
-    </>
+    </div>
   );
 };
 

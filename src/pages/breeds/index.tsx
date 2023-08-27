@@ -20,8 +20,6 @@ const Breeds = () => {
   });
   const { data, loading } = useContext(BreedContext);
 
-  console.log(data);
-
   const changeApiParams = (property: "limit" | "breed", value: string) => {
     setParams((prev) => {
       prev[property] = value;

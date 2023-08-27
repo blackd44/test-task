@@ -20,8 +20,6 @@ const BreedSelected = () => {
     `https://api.thecatapi.com/v1/breeds/${breedId}?api_key=${API_KEY}`
   );
 
-  console.log(data);
-
   return (
     <>
       <SubHeader title={["BREEDS", `${breedId}`]} />

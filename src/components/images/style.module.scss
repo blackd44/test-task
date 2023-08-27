@@ -1,7 +1,7 @@
 .image {
   position: relative;
   border-radius: 1.25rem;
-  background: #f8f8f7;
+  background: var(--back-color-grey);
   background-size: contain;
   animation: image_anime 3s ease 0s infinite;
   overflow: hidden;
@@ -42,9 +42,9 @@
 @keyframes image_anime {
   0%,
   100% {
-    background: #f8f8f7;
+    background: var(--back-color-grey);
   }
   55% {
-    background: #eeeeec;
+    background: var(--back-darker-color);
   }
 }

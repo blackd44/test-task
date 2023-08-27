@@ -9,8 +9,6 @@ const Voting = () => {
     `https://api.thecatapi.com/v1/votes?api_key=${API_KEY}`
   );
 
-  console.log({ data });
-
   return (
     <>
       <SubHeader title="VOTING" />

@@ -9,12 +9,12 @@ interface Props {
   children?: ReactNode;
 }
 
-interface context {
+interface Context {
   colorTheme?: ThemeType;
   setTheme?: (val: ThemeType) => void;
 }
 
-export const ThemeContext = createContext<context>({
+export const ThemeContext = createContext<Context>({
   colorTheme: getInitialTheme(),
 });
 

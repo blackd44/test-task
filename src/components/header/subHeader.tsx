@@ -1,9 +1,9 @@
-import { ReactElement, useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import BackButton from "./backButton";
 
 type props = {
   title: string | string[];
-  children?: ReactElement;
+  children?: ReactNode;
 };
 
 const SubHeader = ({ title, children }: props) => {

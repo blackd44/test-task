@@ -5,6 +5,7 @@ type props = {
   children: ReactNode;
   theme?: "normal" | "light" | "gray" | "inverse" | "active";
   type?: "icon" | "icon_md" | "large";
+  className?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => unknown;
   [others: string]: unknown;
 };
@@ -12,6 +13,7 @@ type props = {
 const Button = ({
   formType = "button",
   children,
+  className = "",
   theme = "normal",
   type = "icon",
   onClick,
@@ -24,7 +26,7 @@ const Button = ({
   return (
     <button
       type={formType}
-      className={`btn1 ${theme} type_${type}`}
+      className={`btn1 ${theme} type_${type} ${className}`}
       {...others}
       onClick={click}
     >

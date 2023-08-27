@@ -17,8 +17,6 @@ const Likes = () => {
     `https://api.thecatapi.com/v1/images/search?api_key=${""}`
   );
 
-  console.log({ data });
-
   return (
     <>
       <SubHeader title="LIKES" />

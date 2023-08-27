@@ -17,8 +17,6 @@ const Favourites = () => {
     `https://api.thecatapi.com/v1/favourites`
   );
 
-  console.log({ data });
-
   return (
     <>
       <SubHeader title="FAVOURITES" />

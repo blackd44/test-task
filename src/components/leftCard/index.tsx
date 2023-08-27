@@ -8,6 +8,7 @@ type props = {
   label?: string;
   backColor?: string;
   link?: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 };
 
 const LeftCard = ({
@@ -16,9 +17,11 @@ const LeftCard = ({
   label = "VOTING",
   backColor = "#b4b7ff",
   link = "",
+  onClick = () => {},
 }: props) => {
   return (
     <NavLink
+      onClick={onClick}
       to={link}
       className={({ isActive }) => `${css.card} ${isActive && css.active}`}
       style={{ color: backColor }}
