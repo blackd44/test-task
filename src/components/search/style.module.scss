@@ -3,12 +3,13 @@
 
   display: inline-flex;
   border-radius: 1.25rem;
-  background: #fff;
+  background: var(--white-color);
 
   padding: 0.63rem;
   padding-left: 1.25rem;
 
   input {
+    background-color: transparent;
     flex: 1;
 
     border: none;

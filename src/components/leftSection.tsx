@@ -4,13 +4,15 @@ import LeftCard from "./leftCard";
 import votingimage from "../assets/vote-table.png";
 import breedsimage from "../assets/pet-breeds.png";
 import galleryimage from "../assets/images-search.png";
+import ThemeSwitch from "./theme/switch";
 
 const LeftSection = () => {
   return (
     <section className="section_left">
       <div className="section_left_container">
-        <div>
+        <div className="section_left__head">
           <Brand />
+          <ThemeSwitch />
         </div>
 
         <div className="section_left__main">

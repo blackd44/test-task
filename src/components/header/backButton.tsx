@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import Button from "../button";
 
 const BackButton = () => {
   const navigate = useNavigate();
@@ -7,7 +8,7 @@ const BackButton = () => {
   };
 
   return (
-    <button type="button" className="btn1" onClick={goback}>
+    <Button formType="button" type="icon" className="btn1" onClick={goback}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -27,7 +28,7 @@ const BackButton = () => {
           </clipPath>
         </defs>
       </svg>
-    </button>
+    </Button>
   );
 };
 

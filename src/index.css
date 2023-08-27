@@ -6,10 +6,3 @@
   box-sizing: border-box;
 }
 
-body,
-#root {
-  min-height: 100dvh;
-  background: #F8F8F7;
-  color: #1D1D1D;
-  font-family: Jost;
-}

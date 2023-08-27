@@ -1,6 +1,6 @@
 .box {
-  --noraml-back: #fff;
-  --gray-back: #F8F8F7;
+  --noraml-back: var(--white-color);
+  --gray-back: var(--back-color-grey);
 
   display: flex;
   flex-direction: column;
@@ -22,13 +22,13 @@
     border: none;
     outline: none;
 
-    color: #1d1d1d;
+    color: var(--black-color);
     font-family: Jost;
     font-size: 1rem;
     font-weight: 400;
 
     &:focus {
-      outline: 2px solid #fbe0dc;
+      outline: 2px solid var(--active-light-color-active-light);
     }
   }
 
