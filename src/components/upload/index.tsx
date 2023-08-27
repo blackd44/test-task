@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../button";
 import Modal from "../modal";
+import UploadForm from "./uploadForm";
 
 const UploadButton = () => {
   const [showModel, setShow] = useState(false);
@@ -20,12 +21,7 @@ const UploadButton = () => {
             </a>{" "}
             or face deletion.
           </p>
-          <div className="drag">
-            <p className="grey_color">
-              <b>Drag here</b> your file or <b>Click here</b> to upload
-            </p>
-          </div>
-          <p className="grey_color">No file selected</p>
+          <UploadForm />
         </div>
       </Modal>
       <Button type="large" onClick={() => setShow((p) => !p)}>

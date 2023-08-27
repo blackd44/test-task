@@ -1,14 +1,16 @@
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 type props = {
-  children: ReactElement;
-  theme?: "normal" | "light" | "gray" | "inverse";
+  formType?: "button" | "submit" | "reset" | undefined;
+  children: ReactNode;
+  theme?: "normal" | "light" | "gray" | "inverse" | "active";
   type?: "icon" | "icon_md" | "large";
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => unknown;
   [others: string]: unknown;
 };
 
 const Button = ({
+  formType = "button",
   children,
   theme = "normal",
   type = "icon",
@@ -21,6 +23,7 @@ const Button = ({
 
   return (
     <button
+      type={formType}
       className={`btn1 ${theme} type_${type}`}
       {...others}
       onClick={click}
