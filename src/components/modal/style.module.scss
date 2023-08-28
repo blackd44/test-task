@@ -1,3 +1,5 @@
+@import "/src/values.scss";
+
 .model_section {
   --margin: 1.88rem;
   --padding: 1.25rem;
@@ -8,11 +10,11 @@
   background: var(--back-color);
   border-radius: var(--padding);
   padding: var(--padding);
-  margin: auto var(--margin);
+  margin: auto;
   outline: none;
   border: none;
 
-  @media (min-width: calc(25rem + (1.88rem * 2))) {
+  @media (min-width: $tablet_size) {
     margin-inline: auto var(--margin);
     width: calc(50vw - var(--margin));
   }

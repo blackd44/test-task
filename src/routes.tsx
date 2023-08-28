@@ -9,6 +9,7 @@ import Likes from "./pages/likes";
 import DisLikes from "./pages/dislikes";
 import Favourites from "./pages/favourites";
 import BreedSelected from "./pages/breeds/:breedId";
+import Search from "./pages/search";
 
 const Routes = () => {
   return (
@@ -36,6 +37,8 @@ const Routes = () => {
           <Route path="/likes" element={<Likes />} />
           <Route path="/dislikes" element={<DisLikes />} />
           <Route path="/favourites" element={<Favourites />} />
+
+          <Route path="/search" element={<Search />} />
         </Route>
 
         <Route path="*" element={<HomePage />} />

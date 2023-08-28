@@ -12,12 +12,7 @@ const DragInput = ({ file, setFile }: any) => {
 
   const onDrop = useCallback(
     (acceptedFiles: any[]) => {
-      if (accepted.includes(acceptedFiles[0].type))
-        setFile(
-          Object.assign(acceptedFiles[0], {
-            preview: URL.createObjectURL(acceptedFiles[0]),
-          })
-        );
+      if (accepted.includes(acceptedFiles[0].type)) setFile(acceptedFiles[0]);
     },
     [accepted, setFile]
   );
@@ -34,7 +29,11 @@ const DragInput = ({ file, setFile }: any) => {
           <b>Drag here</b> your file or <b>Click here</b> to upload
         </p>
       ) : (
-        <img className="preview" alt={file.name} src={file.preview} />
+        <img
+          className="preview"
+          alt={file.name}
+          src={URL.createObjectURL(file)}
+        />
       )}
 
       <input

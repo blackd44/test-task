@@ -45,6 +45,10 @@ body,
 .grey_color {
   color: var(--grey-color);
 }
+.black_color,
+.dark_color {
+  color: var(--black-color);
+}
 
 .flex_center {
   display: grid;
@@ -155,6 +159,9 @@ a {
 
         &__main .small_hide {
           display: initial;
+        }
+        .closeNav {
+          display: none;
         }
       }
 
@@ -518,6 +525,14 @@ a {
   color: var(--grey-color);
   font-size: 1rem;
   font-weight: 400;
+
+  &.white_back {
+    background: var(--white-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 //loader
@@ -541,7 +556,7 @@ a {
   height: 100%;
   border-radius: 50%;
   background: conic-gradient(#0000 10%, currentColor);
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(70%), #000 0);
   animation: s3 1s infinite linear;
 }
 @keyframes s3 {

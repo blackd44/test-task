@@ -1,14 +1,25 @@
-import { useId } from "react";
-import css from './style.module.scss'
-
+import { useId, useState } from "react";
+import css from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const SearchInput = () => {
   const id = useId();
+  const navigate = useNavigate();
+
+  const [s, setS] = useState<string>();
+
+  const submit = () => {
+    if (s) navigate(`/search?s=${s}`);
+  };
 
   return (
     <label htmlFor={id} className={`${css.search} header_search`}>
-      <input id={id} placeholder="Search for breeds by name" />
-      <button type="button" className="btn1">
+      <input
+        id={id}
+        placeholder="Search for breeds by name"
+        onChange={(e) => setS(e.target.value)}
+      />
+      <button type="button" className="btn1" onClick={submit}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"
