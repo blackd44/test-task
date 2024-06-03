@@ -41,7 +41,7 @@ const LeftSection = () => {
         <div className="section_left__main">
           <div className="small_hide">
             <h1>Hi!👋</h1>
-            <p>Welcome to MacPaw Bootcamp 2023</p>
+            <p>Welcome to Dalton's PetsPaw</p>
           </div>
           <div>
             <strong className="small_hide">Lets start using The Cat API</strong>
